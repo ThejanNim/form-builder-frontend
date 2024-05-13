@@ -10,7 +10,8 @@ export default function Dashboard() {
             {formConfig.blocks.map(block => (
                 <FormBlock key={block.blockId} formBlockConfig={block} />
             ))}
-            <Sortable />
+
+            <Sortable handle />
         </>
     );
 }

@@ -33,9 +33,6 @@ import {
     NewIndexGetter,
 } from '@dnd-kit/sortable';
 
-// import { createRange } from '../../utilities';
-// import { Item, List, Wrapper } from '../../components';
-
 import { Item } from "./Item";
 import { List } from "./List";
 import { Wrapper } from './Wrapper';
@@ -250,39 +247,40 @@ export function Sortable({
                     </Container>
                 </SortableContext>
             </Wrapper>
-            {useDragOverlay
-                ? createPortal(
-                    <DragOverlay
-                        adjustScale={adjustScale}
-                        dropAnimation={dropAnimation}
-                    >
-                        {activeId ? (
-                            <Item
-                                value={items[activeIndex]}
-                                handle={handle}
-                                renderItem={renderItem}
-                                wrapperStyle={wrapperStyle({
-                                    active: { id: activeId },
-                                    index: activeIndex,
-                                    isDragging: true,
-                                    id: items[activeIndex],
-                                })}
-                                style={getItemStyles({
-                                    id: items[activeIndex],
-                                    index: activeIndex,
-                                    isSorting: activeId !== null,
-                                    isDragging: true,
-                                    overIndex: -1,
-                                    isDragOverlay: true,
-                                })}
-                                dragOverlay
-                            />
-                        ) : null}
-                    </DragOverlay>,
-                    document.body
-                )
-                : null}
-        </DndContext>
+            {
+                useDragOverlay
+                    ? createPortal(
+                        <DragOverlay
+                            adjustScale={adjustScale}
+                            dropAnimation={dropAnimation}
+                        >
+                            {activeId ? (
+                                <Item
+                                    value={items[activeIndex]}
+                                    renderItem={renderItem}
+                                    wrapperStyle={wrapperStyle({
+                                        active: { id: activeId },
+                                        index: activeIndex,
+                                        isDragging: true,
+                                        id: items[activeIndex],
+                                    })}
+                                    style={getItemStyles({
+                                        id: items[activeIndex],
+                                        index: activeIndex,
+                                        isSorting: activeId !== null,
+                                        isDragging: true,
+                                        overIndex: -1,
+                                        isDragOverlay: true,
+                                    })}
+                                    dragOverlay
+                                />
+                            ) : null}
+                        </DragOverlay>,
+                        document.body
+                    )
+                    : null
+            }
+        </DndContext >
     );
 }
 
@@ -335,10 +333,8 @@ export function SortableItem({
         <Item
             ref={setNodeRef}
             value={id}
-            disabled={disabled}
             dragging={isDragging}
             sorting={isSorting}
-            handle={handle}
             handleProps={
                 handle
                     ? {
@@ -355,13 +351,14 @@ export function SortableItem({
                 isSorting,
                 overIndex,
             })}
-            onRemove={onRemove ? () => onRemove(id) : undefined}
+            // onRemove={onRemove ? () => onRemove(id) : undefined}
             transform={transform}
             transition={transition}
             wrapperStyle={wrapperStyle?.({ index, isDragging, active, id })}
             listeners={listeners}
             data-index={index}
             data-id={id}
+            onRemove={() => { }}
             dragOverlay={!useDragOverlay && isDragging}
             {...attributes}
         />
