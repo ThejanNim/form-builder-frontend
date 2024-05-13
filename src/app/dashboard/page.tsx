@@ -11,7 +11,7 @@ export default function Dashboard() {
                 <FormBlock key={block.blockId} formBlockConfig={block} />
             ))}
 
-            <Sortable handle />
+            {typeof window !== 'undefined' && (<Sortable handle />)}
         </>
     );
 }
