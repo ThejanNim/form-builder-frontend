@@ -10,4 +10,4 @@ export const Wrapper = (props: Props) => {
       {props.children}
     </div>
   );
-}
+};
