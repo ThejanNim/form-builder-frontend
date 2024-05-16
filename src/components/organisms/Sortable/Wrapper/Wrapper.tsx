@@ -1,22 +1,13 @@
-import React from 'react';
-// import classNames from 'classnames';
-
-import styles from './Wrapper.module.css';
-import clsx from 'clsx';
+import styles from './Wrapper.module.scss';
 
 interface Props {
   children: React.ReactNode;
-  center?: boolean;
-  style?: React.CSSProperties;
 }
 
-export function Wrapper({children, center, style}: Props) {
+export const Wrapper = (props: Props) => {
   return (
-    <div
-      className={clsx(styles.Wrapper, center && styles.center)}
-      style={style}
-    >
-      {children}
+    <div className={styles.Wrapper} >
+      {props.children}
     </div>
   );
 }
