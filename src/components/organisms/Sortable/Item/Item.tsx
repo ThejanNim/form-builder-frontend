@@ -88,9 +88,8 @@ export const Item = React.memo(
       ) : (
         <li
           className={clsx(
-            "flex box-border origin-top-left touch-manipulation",
             styles.Wrapper,
-            styles.fadeIn,
+            fadeIn && styles.fadeIn,
             sorting && styles.sorting,
             dragOverlay && styles.dragOverlay,
             'w-full group/item'
@@ -133,11 +132,6 @@ export const Item = React.memo(
             {...props}
           >
             {value}
-            {/* <span className={styles.Actions}>
-              {onRemove ? (
-                <Remove className="invisible" onClick={onRemove} />
-              ) : null}
-            </span> */}
           </div>
         </li>
       );
