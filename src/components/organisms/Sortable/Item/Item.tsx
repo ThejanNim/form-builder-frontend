@@ -3,10 +3,9 @@ import React, { useEffect } from 'react';
 import type { DraggableSyntheticListeners } from '@dnd-kit/core';
 import type { Transform } from '@dnd-kit/utilities';
 
-import { Handle, Remove } from './components';
-
-import styles from './Item.module.css';
+import styles from './Item.module.scss';
 import clsx from 'clsx';
+import { DragHandler } from '@/components/atoms/DragHandler';
 
 export interface Props {
   dragOverlay?: boolean;
@@ -119,12 +118,13 @@ export const Item = React.memo(
           ref={ref}
         >
           <div className='group/edit invisible group-hover/item:visible'>
-            <Handle {...handleProps} {...listeners} />
+            <DragHandler {...handleProps} {...listeners} />
           </div>
           <div
             className={clsx(
               styles.Item,
               dragging && styles.dragging,
+              styles.withHandle,
               dragOverlay && styles.dragOverlay,
             )}
             style={style}
@@ -132,11 +132,6 @@ export const Item = React.memo(
             {...props}
           >
             {value}
-            {/* <span className={styles.Actions}>
-              {onRemove ? (
-                <Remove className={styles.Remove} onClick={onRemove} />
-              ) : null}
-            </span> */}
           </div>
         </li>
       );
