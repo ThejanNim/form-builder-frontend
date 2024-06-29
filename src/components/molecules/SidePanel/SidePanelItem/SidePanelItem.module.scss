@@ -1,0 +1,19 @@
+.side-panel-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+}
+
+.icon {
+  color: rgb(137, 136, 132);
+  min-width: 16px;
+  min-height: 16px;
+}
+
+.label {
+  color: rgb(55, 53, 47);
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+}
