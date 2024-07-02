@@ -7,6 +7,11 @@ const nextConfig = {
         destination: "/dashboard",
         permanent: true,
       },
+      {
+        source: "/form/:formId",
+        destination: "/form/:formId/summary",
+        permanent: true,
+      },
     ];
   },
   webpack(config) {
