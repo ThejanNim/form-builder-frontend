@@ -1,0 +1,21 @@
+.tile {
+  padding: 11px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(55, 53, 47, 0.09);
+  }
+}
+
+.title {
+  line-height: 20px;
+  font-weight: 600;
+  color: rgb(55, 53, 47);
+}
+
+.description {
+  color: rgb(137, 136, 132);
+  font-size: 14px;
+  line-height: 16px;
+}

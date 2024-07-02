@@ -7,7 +7,8 @@ import SearchIcon from "./assets/search.svg";
 import MembersIcon from "./assets/members.svg";
 import DomainsIcon from "./assets/domains.svg";
 import SettingsIcon from "./assets/settings.svg";
-import { UserProfile } from "../UserProfile";
+import { UserProfile } from "../../molecules/UserProfile";
+import { SidePanelWorkspace } from "./SidePanelWorkspace";
 
 type SidePanelItem = {
   label: string;
@@ -43,14 +44,17 @@ export function SidePanel() {
       {/* <Collapsible.Trigger>Toggle</Collapsible.Trigger> */}
       <UserProfile />
       <Collapsible.Content className={styles["content"]}>
-        <div>
-          {sidePanelItems.map((item: SidePanelItem) => (
-            <SidePanelItem
-              key={item.label}
-              label={item.label}
-              icon={item.icon}
-            />
-          ))}
+        <div className="flex flex-col gap-[16px]">
+          <div>
+            {sidePanelItems.map((item: SidePanelItem) => (
+              <SidePanelItem
+                key={item.label}
+                label={item.label}
+                icon={item.icon}
+              />
+            ))}
+          </div>
+          <SidePanelWorkspace />
         </div>
       </Collapsible.Content>
     </Collapsible.Root>
