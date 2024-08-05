@@ -23,7 +23,7 @@ export function SignUpForm() {
           <Button>Sign up</Button>
         </form>
         <span className={styles["terms-text"]}>
-          By clicking 'Sign up', you agree to our{" "}
+          By clicking &apos;Sign up&apos;, you agree to our{" "}
           <a className={styles["terms-link"]} href="/">
             Terms & Privacy Policy
           </a>
