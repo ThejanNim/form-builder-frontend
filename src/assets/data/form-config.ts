@@ -11,12 +11,12 @@ const formConfig: FormConfig = {
             placeholder: 'Enter your name',
         },
         {
-            blockId: 'block-1',
+            blockId: 'block-2',
             type: 'Checkbox',
             isRequired: true,
             placeholder: 'Enter your name',
         },
-    ]
+    ],
 };
 
 export default formConfig;
