@@ -1,1 +1,1 @@
-export { default } from './FormBlock';
+export { FormBlock } from './FormBlock';
